@@ -1,0 +1,4 @@
+athena_chat:
+    resource: "@AthenaChatBundle/Resources/config/routing.yml"
+    prefix:   /
+

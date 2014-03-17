@@ -1,0 +1,7 @@
+parameters:
+#    athena_chat.example.class: Athena\ChatBundle\Example
+
+services:
+#    athena_chat.example:
+#        class: %athena_chat.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

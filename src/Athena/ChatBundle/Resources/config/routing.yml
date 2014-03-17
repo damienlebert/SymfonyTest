@@ -1,0 +1,4 @@
+
+HelloTheWorld:
+    path:     /hello-world
+    defaults: { _controller: AthenaChatBundle:Chat:index }
