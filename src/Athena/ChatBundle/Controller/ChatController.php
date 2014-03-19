@@ -11,6 +11,14 @@ class ChatController extends Controller
 {
   public function indexAction()
   {
-    return $this->render('AthenaChatBundle:Chat:index.html.twig');
+        $repository = $this->getDoctrine()
+                   ->getManager()
+                   ->getRepository('AthenaChatBundle:Utilisateur');
+
+        $listeUtilisateurs = $repository->findAll();
+
+        return $this->render('AthenaChatBundle:Chat:index.html.twig', array(
+            'listeUtilisateurs' => $listeUtilisateurs
+        ));
   }
 }

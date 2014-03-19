@@ -22,6 +22,12 @@ class Utilisateur
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="Athena\ChatBundle\Entity\UtilisateurConversation",
+     * mappedBy="utilisateur")
+     */
+    private $conversations;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="login", type="string", length=100, unique=true)
@@ -43,16 +49,17 @@ class Utilisateur
     private $isConnected;
 
     /**
-   * @ORM\ManyToMany(targetEntity="Athena\ChatBundle\Entity\Conversation", cascade={"persist"})
-   */
-    private $conversations;
-
-
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->conversations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -75,7 +82,7 @@ class Utilisateur
     /**
      * Get login
      *
-     * @return string
+     * @return string 
      */
     public function getLogin()
     {
@@ -98,7 +105,7 @@ class Utilisateur
     /**
      * Get mdp
      *
-     * @return string
+     * @return string 
      */
     public function getMdp()
     {
@@ -121,10 +128,43 @@ class Utilisateur
     /**
      * Get isConnected
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getIsConnected()
     {
         return $this->isConnected;
+    }
+
+    /**
+     * Add conversations
+     *
+     * @param \Athena\ChatBundle\Entity\UtilisateurConversation $conversations
+     * @return Utilisateur
+     */
+    public function addConversation(\Athena\ChatBundle\Entity\UtilisateurConversation $conversations)
+    {
+        $this->conversations[] = $conversations;
+
+        return $this;
+    }
+
+    /**
+     * Remove conversations
+     *
+     * @param \Athena\ChatBundle\Entity\UtilisateurConversation $conversations
+     */
+    public function removeConversation(\Athena\ChatBundle\Entity\UtilisateurConversation $conversations)
+    {
+        $this->conversations->removeElement($conversations);
+    }
+
+    /**
+     * Get conversations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getConversations()
+    {
+        return $this->conversations;
     }
 }

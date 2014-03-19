@@ -1,18 +1,70 @@
 {# src/Sdz/BlogBundle/Resources/views/Blog/index.html.twig #}
 
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Bienvenue sur ma première page avec le Site du Zéro !</title>
-  </head>
-  <body>
-    <h1>Hello World !</h1>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+    <html class="no-js">
+    <!--<![endif]-->
 
-    <p>
-      Le Hello World est un grand classique en programmation.
-      Il signifie énormément, car cela veut dire que vous avez
-      réussi à exécuter le programme pour accomplir une tâche simple :
-      afficher ce hello world !
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Mon chat</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        {% stylesheets 'bundles/athenachat/css/*' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        <style>
+        body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+        }
+        </style>
+
+    <body>
+        <hr>
+        <div class="navbar navbar-default navbar-fixed-bottom navbar-conversation">
+            <div class="container panel-conversation">
+                <table class="table table-hover table-users">
+                    <thead>
+                        <tr class="panel-head blue-text" >
+                            <td style='padding:7px;'><strong>Conversation</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody id="users">
+                        {% for utilisateur in listeUtilisateurs %}
+
+                        <tr><td>
+                                {{ utilisateur.login }}
+                                <span class='glyphicon glyphicon-remove-circle droite non-connecte'></span>
+                        </td></tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class='user-td'>
+                                <input class="input-conversation form-control input-sm"
+                                       type="text" name="recherche" id="recherche"
+                                       placeholder="Rechercher" width="100%" style="width:60%" />
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div id="conversation-container" class="conversation-container">
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="bs-footer" role="contentinfo">
+        <p class="indentH4">
+            IP-FORMATION &copy; ATHENA Company 2013 - Pierre VASSOILLES & Damien LEBERT
+        </p>
+    </footer>
+
+</body>
 </html>

@@ -1,0 +1,277 @@
+@import url(http://weloveiconfonts.com/api/?family=typicons);
+[class*="typicons-"]:before {
+  font-family: 'Typicons', sans-serif;
+}
+.navbar .navbar-nav > .active > a {
+    background-color: #EEEEEE;
+}
+.navbar-text{
+    color: #FFFFFF;
+}
+.container-max{
+    width:100%;
+    max-width:2000px;
+}
+.indentH4{
+    margin-left:20px;
+}
+.margin-top{
+    margin-top:20px;
+}
+.blue-text{
+    color: #428BCA;
+    padding:0px;
+}
+.panel-conversation{
+    max-width:200px;
+    max-height:250px;
+    height:250px;
+    width:200px;
+    float:right;
+    padding-left: 0px; 
+    padding-right: 0px;
+}
+.input-conversation{
+    
+}
+.navbar-fixed-bottom{
+    background:transparent;
+}
+.body-mess{
+    height:800px;
+    overflow:auto;
+    white-space:pre-wrap;
+    overflow-wrap: break-word;
+    padding-bottom:5px;
+}
+
+.system_msg{color: #BDBDBD;font-style: italic;}
+.user_name{font-weight:bold;}
+.user_message{color: #88B6E0;}
+.message-item{}
+
+.panel-head
+{
+    background-image: linear-gradient(to bottom, #EEEEEE 0px, #E8E8E8 100%);
+    background-repeat: repeat-x;
+    border-top:0;
+    height:18px;
+    cursor:pointer;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 1px 5px rgba(0, 0, 0, 0.075);
+}
+.table-users
+{
+    border: 1px solid grey;
+    border-bottom:0;
+    bottom:0;
+    position:fixed;
+    margin-bottom:0;
+    width:250px;
+    border-collapse:inherit;
+}
+.user-td
+{
+    font-size:12px;
+    cursor:pointer;
+    height:20px;
+    background-color:white;
+}
+
+.conversation-container
+{
+    position:fixed;
+    right:202px;
+    overflow:visible;
+    bottom:0;
+    height:20px;
+}
+.navbar-conversation
+{
+    box-shadow:none;
+}
+.form-group-colle{
+    margin-bottom:0;
+}
+
+.module {
+  width: 250px;
+  margin: 20px 5px 0 0; 
+  position:relative;
+  bottom:284px;
+  float:right;
+  display:block;
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+
+.fixe-bas
+{
+    bottom:0;
+}
+.bloc-conversation
+{
+  width: 250px;
+  margin: 0;
+  margin-left:5px;
+  position:relative;
+  float:right;
+  display:block;
+  border-collapse: collapse;
+}
+.top-bar {
+  background: #666;
+  width:248px;
+  color: white;
+  padding: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor:pointer;
+  bottom:0;
+}
+.top-bar h1 {
+  display: inline;
+  font-size: 1.3rem;
+}
+.top-bar .typicons-message {
+  display: inline-block;
+  padding: 4px 5px 2px 5px;
+}
+.top-bar .typicons-minus {
+  position: relative;
+  top: 3px;
+}
+.top-bar .left {
+  float: left;
+}
+.top-bar .right {
+  float: right;
+  padding-top: 5px;
+}
+.top-bar > * {
+  position: relative;
+}
+.top-bar::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  opacity: 0.25;
+  background: radial-gradient(#ffffff, #000000);
+  /*animation: pulse 1s ease alternate infinite;*/
+}
+
+.discussion {
+  list-style: none;
+  background: #e5e5e5;
+  margin: 0;
+  padding: 0;
+  
+}
+.discussion li {
+  padding: 0.5rem;
+  overflow: hidden;
+  display: flex;
+}
+.discussion .avatar {
+  width: 30px;
+  position: relative;
+}
+.discussion .avatar img {
+  display: block;
+  width: 100%;
+}
+
+.other .avatar:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: 5px solid white;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+.other .messages {
+  order: 1;
+  border-top-left-radius: 0;
+}
+.self {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.self .messages {
+  order: 1;
+  border-bottom-right-radius: 0;
+}
+.self .avatar {
+  order: 2;
+}
+.self .avatar:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: 5px solid white;
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+.self .avatar img {
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.discussionContainer{
+    height:218px;
+    overflow:auto;
+    background-color: #e5e5e5;
+    
+}
+.messages {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.messages p {
+  font-size: 1.2rem;
+  margin: 0 0 0.1rem 0;
+}
+.messages time {
+  font-size: 0.7rem;
+  color: #ccc;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}
+
+.droite{
+    float:right;
+    right:50px;
+}
+.non-connecte
+{
+    color:#BBBBBB;
+}
+.connecte
+{
+    color:#099400;
+}
+
+
+
+
+
+
+
+
+
