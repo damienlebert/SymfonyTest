@@ -21,4 +21,18 @@ class ChatController extends Controller
             'listeUtilisateurs' => $listeUtilisateurs
         ));
   }
+  
+  public function getConversatioByIdAction()
+  {
+        $repository = $this->getDoctrine()
+                   ->getManager()
+                   ->getRepository('AthenaChatBundle:Utilisateur');
+
+        $listeUtilisateurs = $repository->findAll();
+
+        $response = new Response(json_encode($listeUtilisateurs));
+        $response->headers->set('Content-Type', 'application/json');
+  }
+  
+  
 }

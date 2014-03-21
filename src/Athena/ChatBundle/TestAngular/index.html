@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="chatApp">
+    <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Mon chat</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="js/controllers.js"></script>
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+
+    <body>
+        <div>
+            <hr>
+            <div class="navbar navbar-default navbar-fixed-bottom navbar-conversation" ng-controller="ChatCtrl">
+                <div class="container panel-conversation">
+                    <table class="table table-hover table-users">
+                        <thead>
+                            <tr class="panel-head blue-text" >
+                                <td style='padding:7px;'><strong>Conversation</strong></td>
+                            </tr>
+                        </thead>
+                        <tbody id="users">
+                            <tr ng-repeat="user in users | filter:searchText">
+                                <td ng-click="addConversation(user)">
+                                    {{ user.prenom}} {{ user.nom}}
+                                    <span class='glyphicon glyphicon-remove-circle droite non-connecte'></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class='user-td'>
+                                    <input class="input-conversation form-control input-sm"
+                                           type="text" name="recherche" id="recherche"
+                                           placeholder="Rechercher" style="width:60%" ng-model="searchText" />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div id="conversation-container" class="conversation-container">
+                    <div class="bloc-conversation visible" ng-repeat="conversation in conversations">
+                        <div class="fixe-bas" ng-hide="!conversation.hidden" ng-click="toggleConversation(conversation)" >
+                            <div class="top-bar" style="bottom:15px;position:relative" >
+                                <div class="left" >
+                                    <span class="icon typicons-message"></span>
+                                    <h1>{{ conversation.user.prenom}} {{ conversation.user.nom}}</h1>
+                                </div>
+                                <div class="right">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module" ng-hide="conversation.hidden">
+                            <div class="top-bar" ng-click="toggleConversation(conversation)">
+                                <div class="left" >
+                                    <span class="icon typicons-message"></span>
+                                    <h1>{{ conversation.user.prenom}} {{ conversation.user.nom}}</h1>
+                                </div>
+                                <div class="right">
+                                    <span class="glyphicon glyphicon-remove"  ng-click="removeConversation(conversation)"></span>
+                                </div>
+                            </div>
+                            <div class="visible">
+                                <div class="discussionContainer" id="test">
+                                    <ol id="discussion" class="discussion">
+                                         <li class="self" ng-repeat="message in conversation.messages">
+                                               <div class="avatar">
+                                                   <img src="/img/avatar.png" class="img-responsive"/>
+                                               </div>
+                                               <div class="messages">
+                                                   <p>{{ message }}</p>
+                                                   <time></time>
+                                               </div>
+                                           </li>
+                                    </ol>
+                                </div>
+                                <div class="form-group form-group-colle">
+                                    <form  ng-submit="sendMessage(conversation)">
+                                        <input type="text" class="form-control input-sm message-input" style="border-radius:0;" placeholder="Votre message" 
+                                               ng-model="conversation.currentMessage">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bs-footer" role="contentinfo">
+            <p class="indentH4">
+                IP-FORMATION &copy; ATHENA Company 2013 - Pierre VASSOILLES & Damien LEBERT
+            </p>
+        </footer>
+
+    </body>
+</html>

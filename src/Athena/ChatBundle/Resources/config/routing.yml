@@ -2,3 +2,9 @@
 HelloTheWorld:
     path:     /hello-world
     defaults: { _controller: AthenaChatBundle:Chat:index }
+    
+GetConversation:
+    path:      /conversation/{id}
+    defaults:  { _controller: AthenaChatBundle:Chat:getConversationById }
+    requirements:
+        id:  \d+
