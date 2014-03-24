@@ -50,10 +50,11 @@ class Conversation {
      * @param \Athena\ChatBundle\Entity\UtilisateurConversation $utilisateurs
      * @return Conversation
      */
-    public function addUtilisateur(\Athena\ChatBundle\Entity\UtilisateurConversation $utilisateurs)
+    public function addUtilisateur(\Athena\ChatBundle\Entity\UtilisateurConversation $utilisateur)
     {
-        $this->utilisateurs[] = $utilisateurs;
-
+        $this->utilisateurs[] = $utilisateur;
+        $utilisateur->setConversation($this);
+        
         return $this;
     }
 
@@ -62,9 +63,9 @@ class Conversation {
      *
      * @param \Athena\ChatBundle\Entity\UtilisateurConversation $utilisateurs
      */
-    public function removeUtilisateur(\Athena\ChatBundle\Entity\UtilisateurConversation $utilisateurs)
+    public function removeUtilisateur(\Athena\ChatBundle\Entity\UtilisateurConversation $utilisateur)
     {
-        $this->utilisateurs->removeElement($utilisateurs);
+        $this->utilisateurs->removeElement($utilisateur);
     }
 
     /**

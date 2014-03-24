@@ -1,7 +1,7 @@
 var chatApp = angular.module('chatApp', []);
 
 
-chatApp.controller('ChatCtrl', function($scope) {
+chatApp.controller('ChatCtrl', function($scope, $timeout) {
 
 
     $scope.users = [{"login": "dlebert",
@@ -31,7 +31,22 @@ chatApp.controller('ChatCtrl', function($scope) {
         var index = $scope.conversations.indexOf(conversation);
         if ($scope.conversations[index].currentMessage == '')
             return;
-        $scope.conversations[index].messages.push($scope.conversations[index].currentMessage);
+        var message = {'content': $scope.conversations[index].currentMessage, 'date': new Date()} ;
+        $scope.conversations[index].messages.push(message);
         $scope.conversations[index].currentMessage = ''
     }
+    
+    //Messages DateTime in chat
+    moment.lang('fr');
+    $scope.timeAgoMessage = function(date){
+        return moment(date).fromNow();
+    }
+    var fireDigestEverySecond = function () {
+        $timeout(function () {fireDigestEverySecond()}, 1000);
+    };
+    fireDigestEverySecond();
+    
+    
+    
+    
 });

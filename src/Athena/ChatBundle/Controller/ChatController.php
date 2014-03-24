@@ -33,6 +33,4 @@ class ChatController extends Controller
         $response = new Response(json_encode($listeUtilisateurs));
         $response->headers->set('Content-Type', 'application/json');
   }
-  
-  
 }
