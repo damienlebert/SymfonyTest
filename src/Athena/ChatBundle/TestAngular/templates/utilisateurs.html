@@ -1,0 +1,26 @@
+<div class="container panel-conversation">
+    <table class="table table-hover table-users">
+        <thead>
+            <tr class="panel-head blue-text" >
+                <td style='padding:7px;'><strong>Conversation</strong></td>
+            </tr>
+        </thead>
+        <tbody id="users">
+            <tr ng-repeat="user in users| filter:searchText">
+                <td ng-click="addConversation(user)">
+                    {{ user.prenom}} {{ user.nom}}
+                    <span class='glyphicon glyphicon-remove-circle droite non-connecte'></span>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class='user-td'>
+                    <input class="input-conversation form-control input-sm"
+                           type="text" name="recherche" id="recherche"
+                           placeholder="Rechercher" style="width:60%" ng-model="searchText" />
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
